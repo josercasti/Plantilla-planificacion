@@ -14,8 +14,8 @@
 \autor{José Ramón Castiñeiras} 
 
 % El nombre del director y co-director, se puede usar el cualquier lugar del documento con el comando \supname y \cosupname y \pertesupname y \pertecosupname
-\director{Nombre del Director}
-\pertenenciaDirector{pertenencia} 
+\director{Esp. Ing. Emilio Moretti}
+\pertenenciaDirector{FIUBA} 
 % FIXME:NO IMPLEMENTADO EL CODIRECTOR ni su pertenencia
 %\codirector{} % si queda vacio no se deberíá incluir 
 %\pertenenciaCoDirector{}
@@ -62,12 +62,14 @@
 \hline
 \rowcolor[HTML]{C0C0C0} 
 Revisión & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Detalles de los cambios realizados} & Fecha      \\ \hline
-1.0      & Creación del documento                                          & 27/06/2020 \\ \hline
-1.1      &                                                                 & dd/mm/aaaa \\ \hline
-1.2      & Otro ejemplo \newline
-		   Con texto partido \newline
-		   En varias líneas \newline
-		   A propósito                                                     & dd/mm/aaaa \\ \hline
+1.0      & Creación del documento                                          & 27/08/2020 \\ \hline
+1.1      & Carga inicial                                                   & 03/09/2020 \\ \hline
+1.2      & Se completa hasta punto 6									   & 06/09/2020 \\ \hline
+1.3      & Se agrega Dir. de Proyecto e Historias de usuario iniciales	   & 12/09/2020 \\ \hline
+
+%		   Con texto partido \newline
+%		   En varias líneas \newline
+%		   A propósito                                                     & dd/mm/aaaa \\ \hline
 \end{tabularx}
 \end{table}
 
@@ -84,9 +86,9 @@ Buenos Aires, \fechaInicioName
 
 \vspace{2cm}
 
-Por medio de la presente se acuerda con el Ing. \authorname\hspace{1px} que su Trabajo Final de la \degreename\hspace{1px} se titulará ``\ttitle'', consistirá esencialmente en el prototipo preliminar de un sistema de control de temperatura de un calefón, y tendrá un presupuesto preliminar estimado de 600 hs de trabajo y \textcolor{red}{\$XXX}, con fecha de inicio \fechaInicioName\hspace{1px} y fecha de presentación pública \fechaFinalName.
+Por medio de la presente se acuerda con el Ing. \authorname\hspace{1px} que su Trabajo Final de la \degreename\hspace{1px} se titulará ``\ttitle'', consistirá esencialmente en el prototipo preliminar de un sistema de monitoreo remoto de estaciones de telefonia celular, y tendrá un presupuesto preliminar estimado de 600 hs de trabajo y \textcolor{red}{\$2000} dólares americanos; con fecha de inicio \fechaInicioName\hspace{1px} y fecha de presentación pública \fechaFinalName.
 
-Se adjunta a esta acta la planificación inicial.
+Se adjunta a este acta la planificación inicial.
 
 \vfill
 
@@ -102,27 +104,26 @@ Se adjunta a esta acta la planificación inicial.
 \end{table}
 
 
-
-
 \section{Descripción técnica-conceptual del proyecto a realizar}
 \label{sec:descripcion}
 
-\begin{consigna}{red}
-El objetivo es que el lector en una o dos páginas entienda de qué se trata el proyecto y cuáles son sus desafíos, su motivación y su importancia.
-Se debe destacar claramente cuál es el valor que agrega el proyecto a realizar. ``El presente proyecto se destaca especialmente por incorporar tal cosa... Esto lo diferencia de otros sistemas similares en que ...''
+\begin{consigna}
 
-Puede ser útil incluir en esta sección la respuesta a alguna de estas preguntas:
-
+El presente proyecto tiene como objetivo el de diseñar un sistema de monitoreo de estaciones remotas. Actualmente no se dispone de este tipo de solución y se prevé la implementación gradual de la misma una vez testeado el prototipo.
+Se pretende disponer de este sistema de bajo costo al inicio de la obra y dejarlo permanente, facilitando a su vez el seguimiento de la obra civil.
+El sistema propuesto está pensado para poder realizar un seguimiento de eventos y monitoreo remoto del sitio, registrando:
 \begin{itemize}
-\item ¿Cómo se vincula este proyecto con la misión de la organización?
-\item ¿Cómo se inserta este proyecto en el modelo de negocio de la organización?
-\item ¿Ayuda a la explicación si se incluye un lienzo Canvas del Modelo de Negocio?
-\item ¿En qué estado del ciclo de vida está el producto que se desea reemplazar o mejorar?
-\item ¿Cuales son las necesidades que debe satisfacer?
-\item ¿Por dónde pasa la innovación?
+\item Fotografías de la torre periódicas y a solicitud permitiendo visualizar estado general
+de las estructuras.
+\item Registro de accesos, (fotografía), lector de RFID.
+\item Registro de cortes de energía eléctrica.
+\item Registro de condiciones ambientales como humedad y temperatura.
+\item Envío de alerta ante intrusiones (a definir SMS/Email).
+\item Opcional – Alarma sonora.
+\item Opcional – Apertura de puerta por candado bluetooth.
 \end{itemize}
 
-La descripción técnica-conceptual \textbf{debe incluir al menos un diagrama en bloques del sistema }y una frase como la siguiente: ``En la Figura \ref{fig:diagBloques} se presenta el diagrama en bloques del sistema. Se observa que...''. Luego recién más abajo de haber puesto esta frase se pone la figura. La regla es que las figuras nunca pueden ir antes de ser mencionadas en el texto, porque sino el lector no entiende por qué de pronto aparece una figura.
+En la Figura \ref{fig:diagBloques} se presenta el diagrama en bloques del sistema propuesto. 
 
 \vspace{25px}
 
@@ -135,27 +136,13 @@ La descripción técnica-conceptual \textbf{debe incluir al menos un diagrama en
 
 \vspace{25px}
 
-El tamaño de la tipografía en la figura debe ser adecuado para que NO pase lo que ocurre acá, donde el lector debe esforzarse para poder leer el texto. Los colores usados en el diagrama deben ser adecuados, tal que ayuden a comprender mejor el diagrama.
 \end{consigna}
 
 
 \section{Identificación y análisis de los interesados}
 \label{sec:interesados}
 
-\begin{consigna}{red} 
-Nota: (borrar esto y todas las consignas en color rojo antes de entregar este documento).
- 
-Es inusual que una misma persona esté en más de un rol, incluso en proyectos chicos.
- 
-Si se considera que una persona cumple dos o más roles, entonces sólo dejarla en el rol más importante. Por ejemplo:
-
-\begin{itemize}
-\item Si una persona es Cliente pero también colabora u orienta, dejarla solo como Cliente.
-\item Si una persona es el Responsable, no debe ser colocado también como Miembro del equipo.
-\end{itemize}
-
-Pero en cambio sí es usual que el Cliente y el Auspiciante sean el mismo, por ejemplo.
-
+\begin{consigna} 
 \begin{table}[ht]
 %\caption{Identificación de los interesados}
 %\label{tab:interesados}
@@ -163,58 +150,48 @@ Pero en cambio sí es usual que el Cliente y el Auspiciante sean el mismo, por e
 \hline
 \rowcolor[HTML]{C0C0C0} 
 Rol           & Nombre y Apellido & Organización 	& Puesto 	\\ \hline
-Auspiciante   &                   &              	&        	\\ \hline
-Cliente       & \clientename      &\empclientename	&        	\\ \hline
-Impulsor      &                   &              	&        	\\ \hline
+Auspiciante   & \clientename      & \empclientename	& COO      	\\ \hline
+Cliente       & \clientename      & \empclientename	& COO      	\\ \hline
+Impulsor      & Alejandro Ochoa   & \empclientename	& CEO      	\\ \hline
 Responsable   & \authorname       & FIUBA        	& Alumno 	\\ \hline
-Colaboradores &                   &              	&        	\\ \hline
+Colaboradores & -                 & -             	& -       	\\ \hline
 Orientador    & \supname	      & \pertesupname 	& Director	Trabajo final \\ \hline
-Equipo        & miembro1 \newline 
-				miembro2          &              	&        	\\ \hline
-Opositores    &                   &              	&        	\\ \hline
-Usuario final &                   &              	&        	\\ \hline
+Equipo        & Matias Ventura | Paula Zanetti     & -  & - 	\\ \hline
+Opositores    & -                  & -             	& -       	\\ \hline
+Usuario final & -                  & -             	& -       	\\ \hline
 \end{tabularx}
 \end{table}
 
-El Director suele ser uno de los Orientadores.
-
-No dejar celdas vacías; si no hay nada que poner en una celda colocar un signo ``-''.
-
-No dejar filas vacías; si no hay nada que poner en una fila entonces eliminarla.
-
-Sería deseable listar a continuación de la tabla las principales características de cada interesado.
- 
-Por ejemplo:
+Características de stakeholders:
 \begin{itemize}
-\item Auspiciante: es riguroso y exigente con la rendición de gastos. Tener mucho cuidado con esto.
-\item Equipo: Juan Perez, suele pedir licencia porque tiene un familiar con una enfermedad. Planificar considerando esto.
-\item Orientador: María Gómez, nos va a poder ayudar mucho con la gestión de impuestos.
+\item Auspiciante: Suele demorar en responder ante solicitud de provisión de detalles. 
+\item Impulsor: Es exigente en cuanto a plazos de entrega.
+\item Equipo: Paula Zanetti. Puede colaborar aunque tiene tiempo escaso en su agenda.
+\item Equipo: Matias Ventura. Ayuda en desarrollo web y aspectos técnicos.
+%\item Orientador: María Gómez, nos va a poder ayudar mucho con la gestión de impuestos.
 \end{itemize}
 
 \end{consigna}
 
 
-
 \section{1. Propósito del proyecto}
 \label{sec:proposito}
 
-\begin{consigna}{red}
-¿Por qué se hace el proyecto? ¿Qué se quiere lograr? 
+\begin{consigna}
 
-Se recomienda que sea solo un párrafo que empiece diciendo ``El propósito de este proyecto es...''.
+El propósito de este proyecto es desarrollar un sistema IoT deberá permitir realizar un seguimiento y controles de la obra civil, eléctrica y metalmecánica, mediante toma de fotografías y registro de eventos en sitios remotos donde se emplaza una estación de telefonía celular.
 \end{consigna}
 
 \section{2. Alcance del proyecto}
 \label{sec:alcance}
 
-\begin{consigna}{red}
-¿Qué se incluye y que no se incluye en este proyecto?
+\begin{consigna}
 
-Se refiere al trabajo a hacer para entregar el producto o resultado especificado. 
-
-Explicitar todo lo quede comprendido dentro del alcance del proyecto.
-
-Explicitar además todo lo que no quede incluido (``El presente proyecto no incluye...'')
+El presente proyecto incluye el desarrollo de los siguientes componentes:
+\item a) Hardware: Un prototipo basado en raspberry Pi4, el cual deberá almacenar la información obtenida por sensores y cámara en caso de no tener conexión a internet. Al momento de  conectarse a internet, deberá hacer una carga de los datos a la infraestructura Cloud.
+\item b) Software: Un desarrollo en 3 capas residente en infraestructura Cloud a definir (AWS/Azure/GCP) siendo una aplicacián de backend que procese los datos obtenidos y los almacene en una base de datos.
+El usuario accederá por una aplicación front-end a efectos de poder visualizar la información en un dashboard. 
+El presente proyecto no incluye la fabricación en serie del dispositivo final para ser emplazado en los sitios.
 
 \end{consigna}
 
@@ -222,72 +199,94 @@ Explicitar además todo lo que no quede incluido (``El presente proyecto no incl
 \section{3. Supuestos del proyecto}
 \label{sec:supuestos}
 
-\begin{consigna}{red}
-``Para el desarrollo del presente proyecto se supone que: ...''
+\begin{consigna}
+
+Para el desarrollo del presente proyecto se suponen los siguientes: 
 
 \begin{itemize}
-\item Supuesto 1
-\item Supuesto 2...
+\item Supuesto 1: Se dispone del hardware necesario para hacer el prototipo.
+\item Supuesto 2: El cliente provee suficiente detalle para poder realizar el desarrollo acorde a sus necesidades.
+\item Supuesto 3: Se dispone de acceso a infraestructura Cloud para hosting del software y datos.
+\item Supuesto 4: No hay restricciones para instalar este tipo de hardware en los sitios remotos.
+\item Supuesto 5: No habrá cuestiones de fuerza mayor que impidan desarrollar el presente proyecto.
 \end{itemize}
 
-Por ejemplo, se podrían incluir supuestos respecto a disponibilidad de tiempo y recursos humanos y materiales, sobre la factibilidad técnica de distintos aspectos del proyecto, sobre otras cuestiones que sean necesarias para el éxito del proyecto como condiciones macroeconómicas o reglamentarias.
 \end{consigna}
 
 \section{4. Requerimientos}
 \label{sec:requerimientos}
 
-\begin{consigna}{red}
-Los requerimientos deben numerarse y de ser posible agruparlos por afinidad:
+\begin{consigna}
 
 \begin{enumerate}
-\item Grupo de requerimientos asociados con...
+\item Grupo de requerimientos asociados con dispositivo hardware:
 	\begin{enumerate}
-	\item Requerimiento 1
-	\item Requerimiento 2
-	\item Requerimiento 3 (prioridad menor)
+	\item Alimentación eléctrica a 220 V / 50 Hz / conector tipo C / I para el prototipo de test.	
+	\item Carcaza resistente a humedad y polvo, dado que estará en intemperie.
+	\item Conector a paquete de baterías con una autonomía de al menos 2 horas.
 	\end{enumerate}
-\item Grupo de requerimientos asociados con...
+\item Grupo de requerimientos asociados con software
 	\begin{enumerate}
-	\item Requerimiento 1
-	\item Requerimiento 2 (prioridad menor)
+	\item Acceso a la información a traves de un [portal web disponible en internet.
+	\item Acceso a la aplicación basada en roles (Admin, usuario) con autenticación por API con Azure o similar. 
+	\item Acceso a la información de cada sitio asignable por perfiles de usuario.
+	\item Envio de alertas por SMS y/o email a elección del usuario.
+	\item Almacenamiento de datos históricos por 5 años.
 	\end{enumerate}
 \end{enumerate}
-
-Leyendo los requerimientos se debe poder interpretar cómo será el proyecto y su funcionalidad.
-
-De ser posible indicar cómo se obtuvieron cada uno de los requerimientos 
-
-Indicar claramente cuál es la prioridad entre los distintos requerimientos. 
-
-No olvidarse de que los requerimientos incluyen a las regulaciones y normas vigentes!!!
-
-Y al escribirlos seguir las siguientes reglas:
-\begin{itemize}
-\item Ser breve y conciso (nadie lee cosas largas). 
-\item Ser específico: no dejar lugar a confusiones.
-\item Expresar los requerimientos en términos que sean cuantificables y medibles.
-\end{itemize}
 
 \end{consigna}
 
 \section{Historias de usuarios (\textit{Product backlog})}
 \label{sec:backlog}
 
-\begin{consigna}{red}
-Descripción: En esta sección se deben incluir las historias de usuarios y su ponderación (\textit{history points}). Recordar que las historias de usuarios son descripciones cortas y simples de una característica contada desde la perspectiva de la persona que desea la nueva capacidad, generalmente un usuario o cliente del sistema. La ponderación es un número entero que representa el tamaño de la historia comparada con otras historias de similar tipo.
+\begin{consigna} 
+\begin{table}
+\begin{tabularx}{\linewidth}{@{}|l|X|X|l|@{}}
+\hline
+\rowcolor[HTML]{C0C0C0} 
+ID  & Hist. de Usuario & Crit. Aceptación & Tamaño 	\\ \hline
+HU1 & COMO Jefe de Operaciones 
+QUIERO Visualizar Estado de las estaciones 
+PARA Detectar anomalias      & 	 & 5    	\\ \hline
+HU2 & COMO Jefe de Operaciones 
+QUIERO Recibir Alertas por SMS/EMail 
+PARA Enviar un Ing. de Campo/FFSS de ser preciso   & 	& 8      	\\ \hline
+HU3 & COMO Gerente de Operaciones 
+QUIERO Visualizar fotos de avances de Obra 
+PARA Validar pagos de avance de Obra  & 	&  8     	\\ \hline
+HU4 & COMO CEO 
+QUIERO Ver el estado general de las estaciones  
+PARA Poder informar a inversores       & &  5	\\ \hline
+HU5 & COMO COO 
+QUIERO Ver listado de ingresos a las estaciones 
+PARA Controlar actividades de Ing. de Campo &           	&   8    	\\ \hline
+HU6 & COMO Jefe de Operaciones 
+QUIERO Agregar Estaciones al sistema 
+PARA Monitoreo de eventos  &  	& 8\\ \hline
+HU7 & COMO Jefe de Operaciones 
+QUIERO Poder suspender envio de alertas 
+PARA Permitir ventana de Mantenimiento  &   &  5	\\ \hline
+
+\end{tabularx}
+\end{table}
+
 \end{consigna}
 
 \section{5. Entregables principales del proyecto}
 \label{sec:entregables}
 
-\begin{consigna}{red}
-Cosas como: 
+\begin{consigna}
+
+Lista de entregables preliminar: 
 \begin{itemize}
-\item Manual de uso
-\item Diagrama esquemático
-\item Código fuente
-\item Diagrama de instalación
-\item Informe final
+\item Prototipo hardware IoT.
+\item Manual de uso perfil usuario y Administrador.
+\item Sitio web con los datos del prototipo.
+\item Diagrama esquemático de la parte hardware para ser fabricado en serie.
+\item Código fuente de la aplicación.
+\item Diagrama de instalación.
+\item Informe final.
 
 \end{itemize}
 
@@ -296,35 +295,105 @@ Cosas como:
 \section{6. Desglose del trabajo en tareas}
 \label{sec:wbs}
 
-\begin{consigna}{red}
-Se recomienda mostrar el WBS mediante una lista indexada:
+\begin{consigna}
 
 \begin{enumerate}
-\item Grupo de tareas 1
-	\begin{enumerate}
-	\item Tarea 1 (tantas hs)
-	\item Tarea 2 (tantas hs)
-	\item Tarea 3 (tantas hs)
-	\end{enumerate}
-\item Grupo de tareas 2
-	\begin{enumerate}
-	\item Tarea 1 (tantas hs)
-	\item Tarea 2 (tantas hs)
-	\item Tarea 3 (tantas hs)
-	\end{enumerate}
-	\item Grupo de tareas 3
-	\begin{enumerate}
-	\item Tarea 1 (tantas hs)
-	\item Tarea 2 (tantas hs)
-	\item Tarea 3 (tantas hs)
-	\item Tarea 4 (tantas hs)
-	\item Tarea 5 (tantas hs)
-	\end{enumerate}
+
+\item Planificación
+
+        \begin{enumerate}
+        \item Definición de alcance (8 hs)
+        \item Identificación de stakeholders (12 hs)
+        \item Documentación (8 hs)
+        \end{enumerate}
+
+\item Análisis
+
+        \begin{enumerate}
+        \item Requerimientos funcionales y no funcionales (24 hs)
+        \item Identificación de actores primarios y secundarios (8 hs)
+        \item Casos de Uso/Hist. usuario (24 hs)
+        \item Diagramas UML (24 hs)
+        \end{enumerate}
+
+\item Capacitación
+
+        \begin{enumerate}
+
+        \item Aprendizaje Cloud Services (40 hs)
+        \item Aprendizaje Desarrollo web  (40 hs)
+        \item Aprendizaje Base de datos  (20 hs)
+        \item Aprendizaje Redes  (16 hs)
+        \end{enumerate}
+
+\item Arquitectura
+
+        \begin{enumerate}
+
+        \item Investigación de arquitecturas (16 hs)
+        \item Evaluación de alternativas (8 hs)
+        \item Documentación de alternativa seleccionada (4 hs)
+        \end{enumerate}
+
+\item Diseño
+
+        \begin{enumerate}
+
+        \item Diseño hardware IoT (30 hs)
+        \item Carcaza  (12 hs)
+        \item Diseño Software (24 hs)
+\item Codificación / Ejecución
+
+        \begin{enumerate}
+
+        \item Programación Front-end (30 hs)
+        \item Programación Backend (30 hs)
+        \item Programación Base de datos (16 hs)
+        \item Configuración infraestructura de cloud (16 hs)
+
+        \item Validación de seguridad OWASP (16 hs)
+        \item Compra Hardware y accesorios (8 hs)
+        \item Compra certificado digital, dominio, Cloud services (16 hs)
+        \end{enumerate}
+
+\item Integración
+
+        \begin{enumerate}
+
+        \item Conexión de componentes (16 hs)
+        \item Troubleshooting (8 hs)
+        \end{enumerate}
+
+\item Validación
+
+        \begin{enumerate}
+
+        \item Testing alfa (12 hs)
+        \item Testing beta (12 hs)
+        \item Stress Testing (8 hs)
+        \end{enumerate}
+
+\item Entrega
+
+        \begin{enumerate}
+
+        \item Manuales de usuarios (12 hs)
+        \item Capacitación de usuarios (20 hs)
+        \item Seguimiento inicial (12 hs)
+        \end{enumerate}
+
+\item Gestión de Proyecto
+
+        \begin{enumerate}
+
+        \item Documentación de proyecto (20 hs)
+        \item Seguimiento con director de proyecto (20 hs)
+        \item Cierre de proyecto (20 hs)
+        \end{enumerate}
+
 \end{enumerate}
 
-Cantidad total de horas: (tantas hs)
-
-Se recomienda que no haya ninguna tarea que lleve más de 40 hs. 
+Cantidad total de horas: (612 hs)
 
 \end{consigna}
 
