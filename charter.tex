@@ -34,7 +34,7 @@
  
 \fechaINICIO{25 de agosto de 2020}		%Fecha de inicio de la cursada de GdP \fechaInicioName
 \fechaFINALPlanificacion{24 de Agosto de 2021} 	%Fecha de final de cursada de GdP
-\fechaFINALTrabajo{22 de diciembre de 2021}		%Fecha de defensa pública del trabajo final
+\fechaFINALTrabajo{22 de setiembre de 2021}		%Fecha de defensa pública del trabajo final
 
 
 \begin{document}
@@ -66,7 +66,7 @@ Revisión & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Detalles de los cambios 
 1.1      & Carga inicial                                                   & 03/09/2020 \\ \hline
 1.2      & Se completa hasta punto 6									   & 06/09/2020 \\ \hline
 1.3      & Se agrega Dir. de Proyecto e Historias de usuario iniciales	   & 12/09/2020 \\ \hline
-
+1.4      & Se realizan correcciones sugeridas por docente P.Bos			   & 13/09/2020 \\ \hline
 %		   Con texto partido \newline
 %		   En varias líneas \newline
 %		   A propósito                                                     & dd/mm/aaaa \\ \hline
@@ -86,7 +86,7 @@ Buenos Aires, \fechaInicioName
 
 \vspace{2cm}
 
-Por medio de la presente se acuerda con el Ing. \authorname\hspace{1px} que su Trabajo Final de la \degreename\hspace{1px} se titulará ``\ttitle'', consistirá esencialmente en el prototipo preliminar de un sistema de monitoreo remoto de estaciones de telefonia celular, y tendrá un presupuesto preliminar estimado de 600 hs de trabajo y \textcolor{red}{\$2000} dólares americanos; con fecha de inicio \fechaInicioName\hspace{1px} y fecha de presentación pública \fechaFinalName.
+Por medio de la presente se acuerda con el Ing. \authorname\hspace{1px} que su Trabajo Final de la \degreename\hspace{1px} se titulará ``\ttitle'', consistirá esencialmente en el prototipo preliminar del sistema mencionado, y tendrá un presupuesto preliminar estimado de 612 hs de trabajo y \textcolor{red}{\$2000} dólares americanos; con fecha de inicio \fechaInicioName\hspace{1px} y fecha de presentación pública \fechaFinalName.
 
 Se adjunta a este acta la planificación inicial.
 
@@ -108,12 +108,11 @@ Se adjunta a este acta la planificación inicial.
 \label{sec:descripcion}
 
 \begin{consigna}
-
-El presente proyecto tiene como objetivo el de diseñar un sistema de monitoreo de estaciones remotas. Actualmente no se dispone de este tipo de solución y se prevé la implementación gradual de la misma una vez testeado el prototipo.
-Se pretende disponer de este sistema de bajo costo al inicio de la obra y dejarlo permanente, facilitando a su vez el seguimiento de la obra civil.
+EEl presente proyecto tiene como objetivo diseñar un sistema de monitoreo de estaciones de telefonía celular remotas. Actualmente no se dispone de este tipo de solución y se prevé su implementación gradual una vez testeado el prototipo en el interior de Colombia.
+Se pretende disponer de este sistema de bajo costo en los primeros estadíos de la obra civil de construcción de la torre de la estación de modo de facilitar su seguimiento.
 El sistema propuesto está pensado para poder realizar un seguimiento de eventos y monitoreo remoto del sitio, registrando:
 \begin{itemize}
-\item Fotografías de la torre periódicas y a solicitud permitiendo visualizar estado general
+\item Fotografías de la torre periódicas y a solicitud que permitan visualizar el estado general
 de las estructuras.
 \item Registro de accesos, (fotografía), lector de RFID.
 \item Registro de cortes de energía eléctrica.
@@ -129,7 +128,7 @@ En la Figura \ref{fig:diagBloques} se presenta el diagrama en bloques del sistem
 
 \begin{figure}[htpb]
 \centering 
-\includegraphics[width=.7\textwidth]{./Figuras/diagBloques.png}
+\includegraphics[width=\textwidth]{./Figuras/diagBloques.png}
 \caption{Diagrama en bloques del sistema}
 \label{fig:diagBloques}
 \end{figure}
@@ -154,20 +153,21 @@ Auspiciante   & \clientename      & \empclientename	& COO      	\\ \hline
 Cliente       & \clientename      & \empclientename	& COO      	\\ \hline
 Impulsor      & Alejandro Ochoa   & \empclientename	& CEO      	\\ \hline
 Responsable   & \authorname       & FIUBA        	& Alumno 	\\ \hline
-Colaboradores & -                 & -             	& -       	\\ \hline
+% Colaboradores & -                 & -             	& -       	\\ \hline
 Orientador    & \supname	      & \pertesupname 	& Director	Trabajo final \\ \hline
 Equipo        & Matias Ventura | Paula Zanetti     & -  & - 	\\ \hline
-Opositores    & -                  & -             	& -       	\\ \hline
-Usuario final & -                  & -             	& -       	\\ \hline
+% Opositores    & -                  & -             	& -       	\\ \hline
+Usuario final externo & Equipos de Mantenimiento de Operadores  & Varios    & Varios- \\ \hline
+Usuario final interno & Equipo de Operaciones      & \empclientename & Varios    	\\ \hline
 \end{tabularx}
 \end{table}
 
 Características de stakeholders:
 \begin{itemize}
-\item Auspiciante: Suele demorar en responder ante solicitud de provisión de detalles. 
-\item Impulsor: Es exigente en cuanto a plazos de entrega.
-\item Equipo: Paula Zanetti. Puede colaborar aunque tiene tiempo escaso en su agenda.
-\item Equipo: Matias Ventura. Ayuda en desarrollo web y aspectos técnicos.
+\item Auspiciante: suele demorar en responder ante solicitud de provisión de detalles. 
+\item Impulsor: es exigente en cuanto a plazos de entrega.
+\item Equipo: Paula Zanetti puede colaborar en documentación UML aunque tiene tiempo escaso en su agenda.
+\item Equipo: Matias Ventura puede proporcionar ayuda en desarrollo web y aspectos técnicos.
 %\item Orientador: María Gómez, nos va a poder ayudar mucho con la gestión de impuestos.
 \end{itemize}
 
@@ -178,19 +178,17 @@ Características de stakeholders:
 \label{sec:proposito}
 
 \begin{consigna}
-
-El propósito de este proyecto es desarrollar un sistema IoT deberá permitir realizar un seguimiento y controles de la obra civil, eléctrica y metalmecánica, mediante toma de fotografías y registro de eventos en sitios remotos donde se emplaza una estación de telefonía celular.
+EEl propósito de este proyecto es desarrollar un sistema IoT deberá permitir realizar un seguimiento y controles de la obra civil, eléctrica y metalmecánica, mediante toma de fotografías y registro de eventos en sitios remotos donde se emplaza una estación de telefonía celular.
 \end{consigna}
 
 \section{2. Alcance del proyecto}
 \label{sec:alcance}
 
 \begin{consigna}
-
-El presente proyecto incluye el desarrollo de los siguientes componentes:
-\item a) Hardware: Un prototipo basado en raspberry Pi4, el cual deberá almacenar la información obtenida por sensores y cámara en caso de no tener conexión a internet. Al momento de  conectarse a internet, deberá hacer una carga de los datos a la infraestructura Cloud.
-\item b) Software: Un desarrollo en 3 capas residente en infraestructura Cloud a definir (AWS/Azure/GCP) siendo una aplicacián de backend que procese los datos obtenidos y los almacene en una base de datos.
-El usuario accederá por una aplicación front-end a efectos de poder visualizar la información en un dashboard. 
+EEl presente proyecto incluye el desarrollo de los siguientes componentes:
+\item a) Hardware: Un prototipo basado en raspberry Pi4, el cual deberá almacenar la información obtenida por sensores y cámara en caso de no tener conexión a Internet. Al momento de  conectarse a Internet, deberá hacer una carga de los datos a la infraestructura Cloud.
+\item b) Software: Un desarrollo en 3 capas residente en infraestructura Cloud a definir (AWS/Azure/GCP) que consta de una aplicación de backend que procese los datos obtenidos y los almacene en una base de datos.
+Los usuarios accederán por una aplicación front-end a efectos de poder visualizar la información en un dashboard. 
 El presente proyecto no incluye la fabricación en serie del dispositivo final para ser emplazado en los sitios.
 
 \end{consigna}
@@ -200,16 +198,16 @@ El presente proyecto no incluye la fabricación en serie del dispositivo final p
 \label{sec:supuestos}
 
 \begin{consigna}
+PPara el desarrollo del presente proyecto se asumen los siguientes supuestos como verdaderos: 
 
-Para el desarrollo del presente proyecto se suponen los siguientes: 
-
-\begin{itemize}
-\item Supuesto 1: Se dispone del hardware necesario para hacer el prototipo.
-\item Supuesto 2: El cliente provee suficiente detalle para poder realizar el desarrollo acorde a sus necesidades.
-\item Supuesto 3: Se dispone de acceso a infraestructura Cloud para hosting del software y datos.
-\item Supuesto 4: No hay restricciones para instalar este tipo de hardware en los sitios remotos.
-\item Supuesto 5: No habrá cuestiones de fuerza mayor que impidan desarrollar el presente proyecto.
-\end{itemize}
+\begin{enumerate}
+\item Se dispone del hardware necesario para hacer el prototipo.
+\item Se dispone del dinero necesario para realizar las adquisiciones necesarias.
+\item El cliente provee suficiente detalle para poder realizar el desarrollo acorde a sus necesidades.
+\item Se dispone de acceso a infraestructura Cloud para hosting del software y datos.
+\item No hay restricciones para instalar este tipo de hardware en los sitios remotos.
+\item No habrá cuestiones de fuerza mayor que impidan desarrollar el presente proyecto.
+\end{enumerate}
 
 \end{consigna}
 
@@ -217,20 +215,19 @@ Para el desarrollo del presente proyecto se suponen los siguientes:
 \label{sec:requerimientos}
 
 \begin{consigna}
-
 \begin{enumerate}
-\item Grupo de requerimientos asociados con dispositivo hardware:
+\item Grupo de requerimientos asociados con el dispositivo de hardware:
 	\begin{enumerate}
 	\item Alimentación eléctrica a 220 V / 50 Hz / conector tipo C / I para el prototipo de test.	
-	\item Carcaza resistente a humedad y polvo, dado que estará en intemperie.
+	\item Carcaza con grado de proteccion IP 65 - resistente a humedad y polvo- dado que estará en intemperie.
 	\item Conector a paquete de baterías con una autonomía de al menos 2 horas.
 	\end{enumerate}
 \item Grupo de requerimientos asociados con software
 	\begin{enumerate}
-	\item Acceso a la información a traves de un [portal web disponible en internet.
+	\item Acceso a la información mediante un portal web disponible en Internet.
 	\item Acceso a la aplicación basada en roles (Admin, usuario) con autenticación por API con Azure o similar. 
 	\item Acceso a la información de cada sitio asignable por perfiles de usuario.
-	\item Envio de alertas por SMS y/o email a elección del usuario.
+	\item Envío de alertas por SMS y/o email a elección del usuario.
 	\item Almacenamiento de datos históricos por 5 años.
 	\end{enumerate}
 \end{enumerate}
@@ -265,7 +262,7 @@ HU6 & COMO Jefe de Operaciones
 QUIERO Agregar Estaciones al sistema 
 PARA Monitoreo de eventos  &  	& 1  & 3 \\ \hline
 HU7 & COMO Jefe de Operaciones 
-QUIERO Poder suspender envio de alertas 
+QUIERO Poder suspender envío de alertas 
 PARA Permitir ventana de Mantenimiento  &   &  1 &  3	\\ \hline
 HU8 & COMO Jefe de Operaciones 
 QUIERO Poder crear usuarios en el sistema 
@@ -274,9 +271,8 @@ PARA Permitir acceso a información  &   &  3 &  3	\\ \hline
 \end{tabularx}
 \end{table}
 
-Criterio Prioridad: de 1 a 5, siendo 1 mas prioritario.   
+Criterio Prioridad: de 1 a 5, siendo 1 más prioritario. 
 Criterio Complejidad: de 3 a 13, siendo 3 menos complejo. 
-
 
 \end{consigna}
 
@@ -284,11 +280,10 @@ Criterio Complejidad: de 3 a 13, siendo 3 menos complejo.
 \label{sec:entregables}
 
 \begin{consigna}
-
-Lista de entregables preliminar: 
+LLista de entregables preliminar: 
 \begin{itemize}
 \item Prototipo hardware IoT.
-\item Manual de uso perfil usuario y Administrador.
+\item Manual de uso perfil usuario estándar y usuario administrador.
 \item Sitio web con los datos del prototipo.
 \item Diagrama esquemático de la parte hardware para ser fabricado en serie.
 \item Código fuente de la aplicación.
@@ -311,7 +306,7 @@ Lista de entregables preliminar:
         \begin{enumerate}
         \item Definición de alcance (8 hs)
         \item Identificación de stakeholders (12 hs)
-        \item Documentación (8 hs)
+        \item Documentación -actualizar el presente documento- (8 hs)
         \end{enumerate}
 
 \item Análisis
@@ -326,7 +321,6 @@ Lista de entregables preliminar:
 \item Capacitación
 
         \begin{enumerate}
-
         \item Aprendizaje Cloud Services (40 hs)
         \item Aprendizaje Desarrollo web  (40 hs)
         \item Aprendizaje Base de datos  (20 hs)
@@ -336,7 +330,6 @@ Lista de entregables preliminar:
 \item Arquitectura
 
         \begin{enumerate}
-
         \item Investigación de arquitecturas (16 hs)
         \item Evaluación de alternativas (8 hs)
         \item Documentación de alternativa seleccionada (4 hs)
@@ -345,19 +338,17 @@ Lista de entregables preliminar:
 \item Diseño
 
         \begin{enumerate}
-
         \item Diseño hardware IoT (30 hs)
         \item Carcaza  (12 hs)
         \item Diseño Software (24 hs)
+        
 \item Codificación / Ejecución
 
         \begin{enumerate}
-
         \item Programación Front-end (30 hs)
         \item Programación Backend (30 hs)
         \item Programación Base de datos (16 hs)
         \item Configuración infraestructura de cloud (16 hs)
-
         \item Validación de seguridad OWASP (16 hs)
         \item Compra Hardware y accesorios (8 hs)
         \item Compra certificado digital, dominio, Cloud services (16 hs)
@@ -366,7 +357,6 @@ Lista de entregables preliminar:
 \item Integración
 
         \begin{enumerate}
-
         \item Conexión de componentes (16 hs)
         \item Troubleshooting (8 hs)
         \end{enumerate}
@@ -374,7 +364,6 @@ Lista de entregables preliminar:
 \item Validación
 
         \begin{enumerate}
-
         \item Testing alfa (12 hs)
         \item Testing beta (12 hs)
         \item Stress Testing (8 hs)
@@ -383,7 +372,6 @@ Lista de entregables preliminar:
 \item Entrega
 
         \begin{enumerate}
-
         \item Manuales de usuarios (12 hs)
         \item Capacitación de usuarios (20 hs)
         \item Seguimiento inicial (12 hs)
@@ -392,7 +380,6 @@ Lista de entregables preliminar:
 \item Gestión de Proyecto
 
         \begin{enumerate}
-
         \item Documentación de proyecto (20 hs)
         \item Seguimiento con director de proyecto (20 hs)
         \item Cierre de proyecto (20 hs)
