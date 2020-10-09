@@ -1,6 +1,5 @@
 \documentclass[11pt]{charter}
-\usepackage{pdflscape}
-%\usepackage[dvipsnames]{xcolor}
+
 % El títulos de la memoria, se usa en la carátula y se puede usar el cualquier lugar del documento con el comando \ttitle
 \titulo{Sistema de monitoreo remoto de estaciones de telefonía celular} 
 
@@ -69,7 +68,7 @@ Revisión & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Detalles de los cambios 
 1.3      & Se agrega Dir. de Proyecto e Historias de usuario iniciales	   & 12/09/2020 \\ \hline
 1.4      & Se realizan correcciones sugeridas por docente P.Bos			   & 13/09/2020 \\ \hline
 1.5      & Se completa	hasta punto 11		  							   & 27/09/2020 \\ \hline
-1.6      & Se completa	hasta punto 17 -a revisar-  					   & 06/10/2020 \\ \hline%		   Con texto partido \newline
+%		   Con texto partido \newline
 %		   En varias líneas \newline
 %		   A propósito                                                     & dd/mm/aaaa \\ \hline
 \end{tabularx}
@@ -88,7 +87,7 @@ Buenos Aires, \fechaInicioName
 
 \vspace{2cm}
 
-Por medio de la presente se acuerda con el Ing. \authorname\hspace{1px} que su Trabajo Final de la \degreename\hspace{1px} se titulará ``\ttitle'', consistirá esencialmente en el prototipo preliminar del sistema mencionado, y tendrá un presupuesto preliminar estimado de 610 hs de trabajo y \textcolor{red}{\$2000} dólares americanos; con fecha de inicio \fechaInicioName\hspace{1px} y fecha de presentación pública \fechaFinalName.
+Por medio de la presente se acuerda con el Ing. \authorname\hspace{1px} que su Trabajo Final de la \degreename\hspace{1px} se titulará ``\ttitle'', consistirá esencialmente en el prototipo preliminar del sistema mencionado, y tendrá un presupuesto preliminar estimado de 612 hs de trabajo y \textcolor{red}{\$2000} dólares americanos; con fecha de inicio \fechaInicioName\hspace{1px} y fecha de presentación pública \fechaFinalName.
 
 Se adjunta a este acta la planificación inicial.
 
@@ -144,9 +143,7 @@ En la Figura \ref{fig:diagBloques} se presenta el diagrama en bloques del sistem
 \label{sec:interesados}
 
 \begin{consigna} 
-\begin{table}[ht]
-\label{tab:registro}
-\centering
+\begin{table}
 %\caption{Identificación de los interesados}
 %\label{tab:interesados}
 \begin{tabularx}{\linewidth}{@{}|l|X|X|l|@{}}
@@ -164,14 +161,13 @@ Equipo        & Matias Ventura | Paula Zanetti     & -  & - 	\\ \hline
 Usuario final externo & Equipos de Mantenimiento de Operadores  & Varios    & Varios- \\ \hline
 Usuario final interno & Equipo de Operaciones      & \empclientename & Varios    	\\ \hline
 \end{tabularx}
-\caption{LPM}
 \end{table}
 
 Características de stakeholders:
 \begin{itemize}
 \item Auspiciante: suele demorar en responder ante solicitud de provisión de detalles. 
 \item Impulsor: es exigente en cuanto a plazos de entrega.
-\item Equipo: Paula Zanetti puede colaborar en revision de documentación y diagramas UML aunque tiene tiempo escaso en su agenda.
+\item Equipo: Paula Zanetti puede colaborar en documentación UML aunque tiene tiempo escaso en su agenda.
 \item Equipo: Matias Ventura puede proporcionar ayuda en desarrollo web y aspectos técnicos.
 %\item Orientador: María Gómez, nos va a poder ayudar mucho con la gestión de impuestos.
 \end{itemize}
@@ -188,21 +184,23 @@ EEl propósito de este proyecto es desarrollar un sistema IoT deberá permitir r
 
 \section{2. Alcance del proyecto}
 \label{sec:alcance}
+
 \begin{consigna}
 EEl presente proyecto incluye el desarrollo de los siguientes componentes:
-\begin{enumerate}
 \item a) Hardware: Un prototipo basado en raspberry Pi4, el cual deberá almacenar la información obtenida por sensores y cámara en caso de no tener conexión a Internet. Al momento de  conectarse a Internet, deberá hacer una carga de los datos a la infraestructura Cloud.
-\item b) Software: Un desarrollo en 3 capas residente en infraestructura Cloud a definir (AWS/Azure) que consta de una aplicación de backend que procese los datos obtenidos y los almacene en una base de datos.
+\item b) Software: Un desarrollo en 3 capas residente en infraestructura Cloud a definir (AWS/Azure/GCP) que consta de una aplicación de backend que procese los datos obtenidos y los almacene en una base de datos.
 Los usuarios accederán por una aplicación front-end a efectos de poder visualizar la información en un dashboard. 
 El presente proyecto no incluye la fabricación en serie del dispositivo final para ser emplazado en los sitios.
-\end{enumerate}
+
 \end{consigna}
 
 
 \section{3. Supuestos del proyecto}
 \label{sec:supuestos}
+
 \begin{consigna}
 PPara el desarrollo del presente proyecto se asumen los siguientes supuestos como verdaderos: 
+
 \begin{enumerate}
 \item Se dispone del hardware necesario para hacer el prototipo.
 \item Se dispone del dinero necesario para realizar las adquisiciones necesarias.
@@ -216,14 +214,16 @@ PPara el desarrollo del presente proyecto se asumen los siguientes supuestos com
 
 \section{4. Requerimientos}
 \label{sec:requerimientos}
+
 \begin{consigna}
-Grupo de requerimientos asociados con el dispositivo de hardware:
+\begin{enumerate}
+\item Grupo de requerimientos asociados con el dispositivo de hardware:
 	\begin{enumerate}
 	\item Alimentación eléctrica a 220 V / 50 Hz / conector tipo C / I para el prototipo de test.	
-	\item Carcaza con grado de protección IP 65 - resistente a humedad y polvo- dado que estará en intemperie.
+	\item Carcaza con grado de proteccion IP 65 - resistente a humedad y polvo- dado que estará en intemperie.
 	\item Conector a paquete de baterías con una autonomía de al menos 2 horas.
 	\end{enumerate}
-Grupo de requerimientos asociados con software
+\item Grupo de requerimientos asociados con software
 	\begin{enumerate}
 	\item Acceso a la información mediante un portal web disponible en Internet.
 	\item Acceso a la aplicación basada en roles (Admin, usuario) con autenticación por API con Azure o similar. 
@@ -231,6 +231,7 @@ Grupo de requerimientos asociados con software
 	\item Envío de alertas por SMS y/o email a elección del usuario.
 	\item Almacenamiento de datos históricos por 5 años.
 	\end{enumerate}
+\end{enumerate}
 
 \end{consigna}
 
@@ -238,21 +239,36 @@ Grupo de requerimientos asociados con software
 \label{sec:backlog}
 
 \begin{consigna} 
-\begin{table}[ht]
-\label{tab:registro}
-\centering
+\begin{table}
 \begin{tabularx}{\linewidth}{@{}|l|X|X|l|l|@{}}
 \hline
 \rowcolor[HTML]{C0C0C0} 
 ID  & Hist. de Usuario & Crit. Aceptación & Prior. & Pond. \\ \hline
-HU1 & Como Jefe de Operaciones quiero visualizar el estado de las estaciones para detectar eventuales anomalías o detalles de mantenimiento    & 	 & 1   & 5 	\\ \hline
-HU2 & Como Jefe de Operaciones quiero recibir alertas por SMS/EMail para enviar un Ing. de Campo/FFSS de ser preciso   & 	& 2     & 5 	\\ \hline
-HU3 & Como Gerente de Operaciones quiero visualizar fotos de avances de obra para validar pagos relacionados  & 	&  4  & 8   	\\ \hline
-HU4 & Como CEO quiero ver el estado general de las estaciones para informar a inversores    & &  2 & 5	\\ \hline
-HU5 & Como COO quiero ver listado de ingresos a las estaciones para controlar actividades de Ing. de Campo &           	&   1  & 5  	\\ \hline
-HU6 & Como Jefe de Operaciones quiero agregar estaciones al sistema para monitoreo de eventos  &  	& 1  & 3 \\ \hline
-HU7 & Como Jefe de Operaciones quiero poder suspender el envío de alertas para permitir ventana de mantenimiento  &   &  1 &  3	\\ \hline
-HU8 & Como Jefe de Operaciones quiero crear usuarios en el sistema para permitir acceso a información requerida &   &  3 &  3	\\ \hline
+HU1 & COMO Jefe de Operaciones 
+QUIERO Visualizar Estado de las estaciones 
+PARA Detectar anomalias      & 	 & 1   & 5 	\\ \hline
+HU2 & COMO Jefe de Operaciones 
+QUIERO Recibir Alertas por SMS/EMail 
+PARA Enviar un Ing. de Campo/FFSS de ser preciso   & 	& 2     & 5 	\\ \hline
+HU3 & COMO Gerente de Operaciones 
+QUIERO Visualizar fotos de avances de Obra 
+PARA Validar pagos de avance de Obra  & 	&  4  & 8   	\\ \hline
+HU4 & COMO CEO 
+QUIERO Ver el estado general de las estaciones  
+PARA Poder informar a inversores       & &  2 & 5	\\ \hline
+HU5 & COMO COO 
+QUIERO Ver listado de ingresos a las estaciones 
+PARA Controlar actividades de Ing. de Campo &           	&   1  & 5  	\\ \hline
+HU6 & COMO Jefe de Operaciones 
+QUIERO Agregar Estaciones al sistema 
+PARA Monitoreo de eventos  &  	& 1  & 3 \\ \hline
+HU7 & COMO Jefe de Operaciones 
+QUIERO Poder suspender envío de alertas 
+PARA Permitir ventana de Mantenimiento  &   &  1 &  3	\\ \hline
+HU8 & COMO Jefe de Operaciones 
+QUIERO Poder crear usuarios en el sistema 
+PARA Permitir acceso a información  &   &  3 &  3	\\ \hline
+
 \end{tabularx}
 \end{table}
 
@@ -287,6 +303,7 @@ LLista de entregables preliminar:
 \begin{enumerate}
 
 \item Planificación
+
         \begin{enumerate}
         \item Definición de alcance (8 hs)
         \item Identificación de stakeholders (12 hs)
@@ -294,6 +311,7 @@ LLista de entregables preliminar:
         \end{enumerate}
 
 \item Análisis
+
         \begin{enumerate}
         \item Requerimientos funcionales y no funcionales (24 hs)
         \item Identificación de actores primarios y secundarios (8 hs)
@@ -302,6 +320,7 @@ LLista de entregables preliminar:
         \end{enumerate}
 
 \item Capacitación
+
         \begin{enumerate}
         \item Aprendizaje Cloud Services (40 hs)
         \item Aprendizaje Desarrollo web  (40 hs)
@@ -310,6 +329,7 @@ LLista de entregables preliminar:
         \end{enumerate}
 
 \item Arquitectura
+
         \begin{enumerate}
         \item Investigación de arquitecturas (16 hs)
         \item Evaluación de alternativas (8 hs)
@@ -317,14 +337,14 @@ LLista de entregables preliminar:
         \end{enumerate}
 
 \item Diseño
+
         \begin{enumerate}
-        \item Diseño de hardware IoT (30 hs)
-        \item Diseño de Carcaza  (12 hs)
-        \item Diseño de Software IoT (12 hs)
-        \item Diseño de Software Cloud (12 hs)
-        \end{enumerate}
-                
+        \item Diseño hardware IoT (30 hs)
+        \item Carcaza  (12 hs)
+        \item Diseño Software (24 hs)
+        
 \item Codificación / Ejecución
+
         \begin{enumerate}
         \item Programación Front-end (30 hs)
         \item Programación Backend (30 hs)
@@ -336,12 +356,14 @@ LLista de entregables preliminar:
         \end{enumerate}
 
 \item Integración
+
         \begin{enumerate}
         \item Conexión de componentes (16 hs)
         \item Troubleshooting (8 hs)
         \end{enumerate}
 
 \item Validación
+
         \begin{enumerate}
         \item Testing alfa (12 hs)
         \item Testing beta (12 hs)
@@ -349,6 +371,7 @@ LLista de entregables preliminar:
         \end{enumerate}
 
 \item Entrega
+
         \begin{enumerate}
         \item Manuales de usuarios (12 hs)
         \item Capacitación de usuarios (20 hs)
@@ -365,76 +388,138 @@ LLista de entregables preliminar:
 
 \end{enumerate}
 
-Cantidad total de horas: (610 hs)
+Cantidad total de horas: (612 hs)
 
 \end{consigna}
 
 \section{7. Diagrama de Activity On Node}
 \label{sec:AoN}
 
-\begin{consigna}
-EEn base al desglose de EDT anterior se obtiene el siguiente Diagrama de Actividad en nodos. 
-Tiempo expresado en Horas.
+\begin{consigna}{red}
+Armar el AoN a partir del WBS definido en la etapa anterior. 
 
-\begin{figure}[htpb]
-\centering 
-\includegraphics[width=\textwidth]{./Figuras/AoN00.png}
-\caption{Diagrama en \textit{Activity on Node}}
-\label{fig:AoN1}
-\end{figure}
+%La figura \ref{fig:AoN} fue elaborada con el paquete latex tikz y pueden consultar la siguiente referencia \textit{online}:
 
-\begin{figure}[htpb]
-\centering 
-\includegraphics[width=0.8\textwidth]{./Figuras/AoN11.png}
-\caption{Tabla en \textit{Activity on Node}}
-\label{fig:AoN2}
-\end{figure}
+%\url{https://www.overleaf.com/learn/latex/LaTeX_Graphics_using_TikZ:_A_Tutorial_for_Beginners_(Part_3)\%E2\%80\%94Creating_Flowcharts}
+
 \end{consigna}
+
+\begin{figure}[htpb]
+\centering 
+\includegraphics[width=.8\textwidth]{./Figuras/AoN.png}
+\caption{Diagrama en \textit{Activity on Node}}
+\label{fig:AoN}
+\end{figure}
+
+Indicar claramente en qué unidades están expresados los tiempos.
+De ser necesario indicar los caminos semicríticos y analizar sus tiempos mediante un cuadro.
+Es recomendable usar colores y un cuadro indicativo describiendo qué representa cada color, como se muestra en el siguiente ejemplo:
+
+
 
 \section{8. Diagrama de Gantt}
 \label{sec:gantt}
-\afterpage
 
-\begin{figure}[H]
-\centering 
-\includegraphics[width=\textwidth]{./Figuras/gantt1.png}
-\caption{Diagrama de Gantt \textit{Recursos}}
-\label{fig:gantt1}
+\begin{consigna}{red}
+Utilizar el software Gantter for Google Drive o alguno similar para dibujar el diagrama de Gantt.
+
+Existen muchos programas y recursos \textit{online} para hacer diagramas de gantt, entre las cuales destacamos:
+
+\begin{itemize}
+\item Planner
+\item GanttProject
+\item Trello + \textit{plugins}. En el siguiente link hay un tutorial oficial: \\ \url{https://blog.trello.com/es/diagrama-de-gantt-de-un-proyecto}
+\item Creately, herramienta online colaborativa. \\\url{https://creately.com/diagram/example/ieb3p3ml/LaTeX}
+\item Se puede hacer en latex con el paquete \textit{pgfgantt}\\ \url{http://ctan.dcc.uchile.cl/graphics/pgf/contrib/pgfgantt/pgfgantt.pdf}
+\end{itemize}
+
+Pegar acá una captura de pantalla del diagrama de Gantt, cuidando que la letra sea suficientemente grande como para ser legible. 
+Si el diagrama queda demasiado ancho, se puede pegar primero la ``tabla'' del Gantt y luego pegar la parte del diagrama de barras del diagrama de Gantt.
+
+Configurar el software para que en la parte de la tabla muestre los códigos del EDT (WBS).\\
+Configurar el software para que al lado de cada barra muestre el nombre de cada tarea.\\
+Revisar que la fecha de finalización coincida con lo indicado en el Acta Constitutiva.
+
+En la figura \ref{fig:gantt}, se muestra un ejemplo de diagrama de gantt realizado con el paquete de \textit{pgfgantt}. En la plantilla pueden ver el código que lo genera y usarlo de base para construir el propio.
+
+\begin{figure}[htbp]
+\begin{center}
+\begin{ganttchart}{1}{12}
+  \gantttitle{2020}{12} \\
+  \gantttitlelist{1,...,12}{1} \\
+  \ganttgroup{Group 1}{1}{7} \\
+  \ganttbar{Task 1}{1}{2} \\
+  \ganttlinkedbar{Task 2}{3}{7} \ganttnewline
+  \ganttmilestone{Milestone o hito}{7} \ganttnewline
+  \ganttbar{Final Task}{8}{12}
+  \ganttlink{elem2}{elem3}
+  \ganttlink{elem3}{elem4}
+\end{ganttchart}
+\end{center}
+\caption{Diagrama de gantt de ejemplo}
+\label{fig:gantt}
 \end{figure}
 
-\afterpage
-\begin{landscape} 
-\begin{figure}[H]]
-\centering 
-\includegraphics[width=1.5\textwidth]{./Figuras/gantt2.png}
-\caption{Diagrama de Gantt \textit{Tiempo}}
-\label{fig:gantt2}
-\end{figure}
-\end{landscape}
-%----------------------
-%END LANDSCAPE
-%----------------------
-\afterpage
+\end{consigna}
+
 \section{9. Matriz de uso de recursos de materiales}
 \label{sec:recursos}
 
-\begin{table} [H]
+
+\begin{table}
+\label{tab:recursos}
 \centering
 \begin{tabularx}{\linewidth}{@{}|c|X|X|X|X|c|@{}}
 \hline
 \cellcolor[HTML]{C0C0C0} & \cellcolor[HTML]{C0C0C0} & \multicolumn{4}{c|}{\cellcolor[HTML]{C0C0C0}Recursos requeridos (horas)} \\ \cline{3-6} 
-\multirow{-2}{*}{\cellcolor[HTML]{C0C0C0}\begin{tabular}[c]{@{}c@{}}Código\\ WBS\end{tabular}} & \multirow{-2}{*}{\cellcolor[HTML]{C0C0C0}\begin{tabular}[c]{@{}c@{}}Nombre \\ tarea\end{tabular}} & Raspberry4B & Sensores,Cámaras y Accesorios & Carcaza & Cloud Services \\ \hline
-5.2 & Carcaza &  &  & 12  &  \\ \hline
-5.4.4 & Configuración infraestructura de cloud  &  &  & &  16  \\ \hline
-6.1 & Conexión de componentes & 12 & 16  &16  &  \\ \hline
+\multirow{-2}{*}{\cellcolor[HTML]{C0C0C0}\begin{tabular}[c]{@{}c@{}}Código\\ WBS\end{tabular}} & \multirow{-2}{*}{\cellcolor[HTML]{C0C0C0}\begin{tabular}[c]{@{}c@{}}Nombre \\ tarea\end{tabular}} & Material 1 & Material 2 & Material 3 & Material 4 \\ \hline
+ &  &  &  &  &  \\ \hline
+ &  &  &  &  &  \\ \hline
+ &  &  &  &  &  \\ \hline
+ &  &  &  &  &  \\ \hline
+ &  &  &  &  &  \\ \hline
+ &  &  &  &  &  \\ \hline
+ &  &  &  &  &  \\ \hline
+ &  &  &  &  &  \\ \hline 
+ &  &  &  &  &  \\ \hline
+ &  &  &  &  &  \\ \hline
+ &  &  &  &  &  \\ \hline
+ &  &  &  &  &  \\ \hline
+ &  &  &  &  &  \\ \hline
+ &  &  &  &  &  \\ \hline
+ &  &  &  &  &  \\ \hline
+ &  &  &  &  &  \\ \hline
+ &  &  &  &  &  \\ \hline
+ &  &  &  &  &  \\ \hline
+ &  &  &  &  &  \\ \hline
+ &  &  &  &  &  \\ \hline
+ &  &  &  &  &  \\ \hline
+ &  &  &  &  &  \\ \hline
+ &  &  &  &  &  \\ \hline
+ &  &  &  &  &  \\ \hline 
+ &  &  &  &  &  \\ \hline
+ &  &  &  &  &  \\ \hline
+ &  &  &  &  &  \\ \hline
  &  &  &  &  &  \\ \hline
 
 \end{tabularx}%
 \end{table}
 
+
 \section{10. Presupuesto detallado del proyecto}
 \label{sec:presupuesto}
-Valores en USD.
+
+\begin{consigna}{red}
+Si el proyecto es complejo entonces separarlo en partes:
+\begin{itemize}
+\item Un total global, indicando el subtotal acumulado por cada una de las áreas.
+\item El desglose detallado del subtotal de cada una de las áreas.
+\end{itemize}
+
+IMPORTANTE: No olvidarse de considerar los COSTOS INDIRECTOS.
+
+\end{consigna}
+
 \begin{table}[htpb]
 \centering
 \begin{tabularx}{\linewidth}{@{}|X|c|r|r|@{}}
@@ -446,32 +531,24 @@ Descripción &
   \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Cantidad} &
   \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Valor unitario} &
   \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Valor total} \\ \hline
-Raspberry4 &
-  \multicolumn{1}{c|}{2} &
-  \multicolumn{1}{c|}{20} &
-  \multicolumn{1}{c|}{40} \\ \hline
-Sensores y cámaras &
-  \multicolumn{1}{c|}{12} &
-  \multicolumn{1}{c|}{15} &
-  \multicolumn{1}{c|}{180} \\ \hline
-Carcaza &
-  \multicolumn{1}{c|}{2} &
-  \multicolumn{1}{c|}{40} &
-  \multicolumn{1}{c|}{80} \\ \hline
-Cloud Services &
-  \multicolumn{1}{c|}{1} &
-  \multicolumn{1}{c|}{500} &
-  \multicolumn{1}{c|}{500} \\ \hline
-José R. Castiñeiras(610 hs) &
-  \multicolumn{1}{c|}{610} &
-  \multicolumn{1}{c|}{10} &
-  \multicolumn{1}{c|}{6100} \\ \hline
+ &
+  \multicolumn{1}{c|}{} &
+  \multicolumn{1}{c|}{} &
+  \multicolumn{1}{c|}{} \\ \hline
+ &
+  \multicolumn{1}{c|}{} &
+  \multicolumn{1}{c|}{} &
+  \multicolumn{1}{c|}{} \\ \hline
+\multicolumn{1}{|l|}{} &
+   &
+   &
+   \\ \hline
 \multicolumn{1}{|l|}{} &
    &
    &
    \\ \hline
 \multicolumn{3}{|c|}{SUBTOTAL} &
-  \multicolumn{1}{c|}{6900} \\ \hline
+  \multicolumn{1}{c|}{} \\ \hline
 \rowcolor[HTML]{C0C0C0} 
 \multicolumn{4}{|c|}{\cellcolor[HTML]{C0C0C0}COSTOS INDIRECTOS} \\ \hline
 \rowcolor[HTML]{C0C0C0} 
@@ -479,7 +556,11 @@ Descripción &
   \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Cantidad} &
   \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Valor unitario} &
   \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Valor total} \\ \hline
-Costos Indirectos -Internet, celular, otros (30\%) \multicolumn{1}{|l|}{} &
+\multicolumn{1}{|l|}{} &
+   &
+   &
+   \\ \hline
+\multicolumn{1}{|l|}{} &
    &
    &
    \\ \hline
@@ -488,16 +569,18 @@ Costos Indirectos -Internet, celular, otros (30\%) \multicolumn{1}{|l|}{} &
    &
    \\ \hline
 \multicolumn{3}{|c|}{SUBTOTAL} &
-  \multicolumn{1}{c|}{2100} \\ \hline
+  \multicolumn{1}{c|}{} \\ \hline
 \rowcolor[HTML]{C0C0C0}
-\multicolumn{3}{|c|}{TOTAL - USD} & \textbf{9000} 
+\multicolumn{3}{|c|}{TOTAL} &
    \\ \hline
 \end{tabularx}%
 \end{table}
 
+
 \section{11. Matriz de asignación de responsabilidades}
 \label{sec:responsabilidades}
-\begin{consigna}
+\begin{consigna}{red}
+Establecer la matriz de asignación de responsabilidades y el manejo de la autoridad completando la siguiente tabla:
 
 \begin{table}[htpb]
 \centering
@@ -520,46 +603,11 @@ Costos Indirectos -Internet, celular, otros (30\%) \multicolumn{1}{|l|}{} &
   \multirow{-3}{*}{\cellcolor[HTML]{C0C0C0}Nombre de la tarea} &
   \authorname &
   \supname &
-  Matías Ventura &
+  Nombre de alguien &
   \clientename \\ \hline
- 1.1&Definición de alcance &P&&&C  \\  \hline
-1.2&Identificación de stakeholders &P&&&C  \\  \hline
-1.3&Documentación &P&A&&  \\  \hline
-2.1&Requerimientos funcionales y no funcionales &P&&I&  \\  \hline
-2.2&Identificación de actores primarios y secundarios &P&&&  \\  \hline
-2.3&Casos de Uso/Hist. usuario &P&&&  \\  \hline
-2.4&Diagramas UML &P&&&  \\  \hline
-3.1&Aprendizaje Cloud Services &P&&&  \\  \hline
-3.2&Aprendizaje Desarrollo web  &P&&&  \\  \hline
-3.3&Aprendizaje Base de datos  &P&&&  \\  \hline
-3.4&Aprendizaje Redes  &P&&&  \\  \hline
-4.1&Investigación de arquitecturas &P&&C&  \\  \hline
-4.2&Evaluación de alternativas &P&&C&  \\  \hline
-4.3&Documentación de alternativa seleccionada &P&&&  \\  \hline
-5.1&Diseño hardware IoT &P&C&C&  \\  \hline
-5.2&Carcaza  &P&&C&  \\  \hline
-5.3&Diseño Software IoT&P&&&  \\  \hline
-5.4&Diseño Software Cloud&P&&&  \\  \hline
-6.1&Programación Front-end &P&&C&  \\  \hline
-6.2&Programación Backend &P&&C&  \\  \hline
-6.3&Programación Base de datos &P&&&  \\  \hline
-6.4&Configuración infraestructura de cloud &P&&&  \\  \hline
-6.5&Validación de seguridad OWASP &P&&&  \\  \hline
-6.6&Compra Hardware y accesorios &P&&C&  \\  \hline
-6.7&Compra certificados, dominio, Cloud services &P&&&  \\  \hline
-7.1&Conexión de componentes &P&&&  \\  \hline
-7.2&Troubleshooting &P&&&  \\  \hline
-8.1&Testing alfa &P&&C&  \\  \hline
-8.2&Testing beta &P&&C&  \\  \hline
-8.3&Stress Testing &P&&C&  \\  \hline
-9.1&Manuales de usuarios &P&&&  \\  \hline
-9.2&Capacitación de usuarios &P&&&I  \\  \hline
-9.3&Seguimiento inicial &P&&&C  \\  \hline
-10.1&Documentación de proyecto &P&&&I  \\  \hline
-10.2&Seguimiento con director de proyecto &P&C&&  \\  \hline
-10.3&Cierre de proyecto &P&A&&A  \\  \hline 
-&  &  &  &  &  \\ \hline
-
+ &  &  &  &  &  \\ \hline
+ &  &  &  &  &  \\ \hline
+ &  &  &  &  &  \\ \hline
 \end{tabular}%
 }
 \end{table}
@@ -574,117 +622,98 @@ Referencias:
 	\item C = Consultado
 \end{itemize}
 } %footnotesize
+
+Una de las columnas debe ser para el Director, ya que se supone que participará en el proyecto.
+A su vez se debe cuidar que no queden muchas tareas seguidas sin ``A'' o ``I''.
+
+Importante: es redundante poner ``I/A'' o ``I/C'', porque para aprobarlo o responder consultas primero la persona debe ser informada.
+
 \end{consigna}
 
 \section{12. Gestión de riesgos}
 \label{sec:riesgos}
-\begin{consigna}
-IIdentificación de los riesgos y estimación de sus consecuencias.
-Riesgo es un evento que si ocurre, altera los planes previstos.
-Se evalúa ponderación de Severidad y Ocurrencia
+
+\begin{consigna}{red}
+a) Identificación de los riesgos (al menos cinco) y estimación de sus consecuencias:
+ 
+Riesgo 1: detallar el riesgo (riesgo es algo que si ocurre altera los planes previstos)
 \begin{itemize}
-\item Severidad (S): De 1 a 10 siendo 10 más alta.
-\item Ocurrencia (O): De 1 a 10 siendo 10 más probable.
+\item Severidad (S): mientras más severo, más alto es el número (usar números del 1 al 10).\\
+Justificar el motivo por el cual se asigna determinado número de severidad (S).
+\item Probabilidad de ocurrencia (O): mientras más probable, más alto es el número (usar del 1 al 10).\\
+Justificar el motivo por el cual se asigna determinado número de (O). 
+\end{itemize}   
+
+Riesgo 2:
+\begin{itemize}
+\item Severidad (S): 
+\item Ocurrencia (O):
 \end{itemize}
 
-a) Identificación de los riesgos      
+Riesgo 3:
+\begin{itemize}
+\item Severidad (S): 
+\item Ocurrencia (O):
+\end{itemize}
 
-\begin{table}[htpb]
-\centering
-\begin{tabularx}{\linewidth}{@{}|c|X|c|c|c|@{}}
-\hline
-\rowcolor[HTML]{C0C0C0} 
-ID & Riesgo & Cat.& Sev. & Ocurr. \\ \hline
-1& Demoras por curva de aprendizaje de tecnologías   & Tiempo   & 9  & 8  \\ \hline
-2&Requerimientos inestables &  Aceptación de usuario & 6 &  6 \\ \hline
-3&Producto de baja confiabilidad  & Calidad  & 7 & 7  \\ \hline
-4&Incremento de costos de materiales & Costos  & 5 &  5 \\ \hline
-5&Daño del hardware  & Tecnología  & 4 & 5  \\ \hline
-6&Usuario insatisfecho con prototipo &Aceptación de usuario   & 8 & 5  \\ \hline
-\end{tabularx}%
-\end{table}
 
 b) Tabla de gestión de riesgos:      (El RPN se calcula como RPN=SxO)
 
 \begin{table}[htpb]
 \centering
-\begin{tabularx}{\linewidth}{@{}|c|c|c|c|c|c|c|X|@{}}
+\begin{tabularx}{\linewidth}{@{}|X|c|c|c|c|c|c|@{}}
 \hline
 \rowcolor[HTML]{C0C0C0} 
-ID Riesgo & S & O & RPN & S* & O* & RPN*& Mitigación \\ \hline
-  1     & 9  & 8  & \textcolor{red}{72}  &  9  & 4   &\textcolor{green}{36} & Contactar especialistas para asesoramiento con tecnologías \\ \hline
-  2     & 6  & 6  & 36  &    &    &    & 	 		\\ \hline
-  3     & 7  & 7  & \textcolor{red}{49}  &   7 & 5   &\textcolor{green}{35} &  Realización de pruebas exhaustivas, investigar y seleccionar componentes confiables \\ \hline
-  4     & 5  & 5  & 25  &    &    &    &  			\\ \hline
-  5     & 4  & 5  & 20  &    &    &    &  			\\ \hline
-  6     & 8  & 5  & \textcolor{red}{40}  &  8  & 4   &\textcolor{green}{32} & Involucrar al sponsor y Cliente en todas las etapas y validar expectativas en reuniones periódicas	\\ \hline
+Riesgo & S & O & RPN & S* & O* & RPN* \\ \hline
+       &   &   &     &    &    &      \\ \hline
+       &   &   &     &    &    &      \\ \hline
+       &   &   &     &    &    &      \\ \hline
+       &   &   &     &    &    &      \\ \hline
+       &   &   &     &    &    &      \\ \hline
 \end{tabularx}%
 \end{table}
 
 Criterio adoptado: 
-Se tomarán medidas de mitigación en los riesgos cuyos números de RPN sean mayores o iguales a \textbf{\textcolor{red}{40}}.
+Se tomarán medidas de mitigación en los riesgos cuyos números de RPN sean mayores a...
 
-\underline{Nota:} los valores marcados con (*) en la tabla corresponden luego de haber aplicado la mitigación.
+Nota: los valores marcados con (*) en la tabla corresponden luego de haber aplicado la mitigación.
 
 c) Plan de mitigación de los riesgos que originalmente excedían el RPN máximo establecido:
  
-\underline{Nota:} Se plantean estrategias de mitigación en la última columna de la tabla anterior.
+Riesgo 1: plan de mitigación (si por el RPN fuera necesario elaborar un plan de mitigación).
+  Nueva asignación de S y O, con su respectiva justificación:
+  - Severidad (S): mientras más severo, más alto es el número (usar números del 1 al 10).
+          Justificar el motivo por el cual se asigna determinado número de severidad (S).
+  - Probabilidad de ocurrencia (O): mientras más probable, más alto es el número (usar del 1 al 10).
+          Justificar el motivo por el cual se asigna determinado número de (O).
+
+Riesgo 2: plan de mitigación (si por el RPN fuera necesario elaborar un plan de mitigación).
+ 
+Riesgo 3: plan de mitigación (si por el RPN fuera necesario elaborar un plan de mitigación).
+
 \end{consigna}
 
 
 \section{13. Gestión de la calidad}
 \label{sec:calidad}
 
-\begin{consigna}
-GGrupo de requerimientos asociados con el dispositivo de hardware:
-\begin{enumerate}
-	\item Alimentación eléctrica a 220 V / 50 Hz / conector tipo C / I para el prototipo de test. En caso se desarrolle el modelo productivo para Colombia debe ser 110V / 60 Hz conector A/B. \newline	
-\underline{Verificación:}	
-En la documentación y certificación de los dispositivos a adquirir. \newline
-\underline{Validación:}		
-Testeo del prototipo hardware en sitio de pruebas, conexión y desconexión a alimentación eléctrica en modo intermitente.  
-	\item Carcaza con grado de protección IP 65 - resistente a humedad y polvo- dado que estará en intemperie.\newline
-\underline{Verificación:}	
-Investigar materiales adecuados en el mercado nacional. Pedir ayuda a expertos en el tema.  \newline
-\underline{Validación:}		
-Prueba de campo del prototipo por al menos 15 días en sitio de prueba a intemperie.		
-	\item Conector a paquete de baterías con una autonomía de al menos 2 horas. \newline
-\underline{Verificación:}	
-Pedir referencias a expertos. Leer especificaciones de producto de paquete de baterías adecuado  \newline
-\underline{Validación:}		
-Simular cortes de energía eléctrica por 2 horas.
-\end{enumerate}
-Grupo de requerimientos asociados con software:
-	\begin{enumerate}
-	\item Acceso a la información mediante un portal web disponible en Internet.\newline
-	\underline{Verificación:}	
-Montar sitio web con infraestructura acorde. \newline
-	\underline{Validación:}		
-El cliente deberá acceder a testear la plataforma web y proveer conformidad.	
-	\item Acceso a la aplicación basada en roles (Admin, Usuario) con autenticación por API con Azure o similar. \newline
-	\underline{Verificación:}	
-Leer documentacion API de proveedor cloud e implementar autenticación federada acorde.  \newline
-\underline{Validación:}		
-El cliente deberá acceder a testear la autenticación y proveer conformidad.	
-	\item Acceso a la información de cada sitio asignable por perfiles de usuario.\newline
-	\underline{Verificación:}	
-Crear casos de prueba acordes. \newline
-\underline{Validación:}		
-El cliente deberá acceder a testear la plataforma web y proveer conformidad.
-	\item Envío de alertas por SMS y/o email a elección del usuario.\newline
-	\underline{Verificación:}	
-Leer documentacion API de proveedor cloud e implementar envío de mensajes acorde a la misma.  \newline
-\underline{Validación:}		
-El cliente deberá acceder a testear las notificaciones y proveer conformidad.
-	\item Almacenamiento de datos históricos por 5 años.\newline
-	\underline{Verificación:}	
-Generación de lotes de prueba acordes simulando volumen requerido. \newline
-\underline{Validación:}		
-El cliente deberá acceder a testear la información histórica y proveer conformidad.
-\end{enumerate}
+\begin{consigna}{red}
+Para cada uno de los requerimientos del proyecto indique:
+\begin{itemize} 
+\item Req \#1: copiar acá el requerimiento.
+
+Verificación y validación:
+
+\begin{itemize}
+\item Verificación para confirmar si se cumplió con lo requerido antes de mostrar el sistema al cliente. Detallar 
+\item Validación con el cliente para confirmar que está de acuerdo en que se cumplió con lo requerido. Detallar  
+\end{itemize}
+
+\end{itemize}
+
+Tener en cuenta que en este contexto se pueden mencionar simulaciones, cálculos, revisión de hojas de datos, consulta con expertos, mediciones, etc.
+
 \end{consigna}
-
-
 
 \section{14. Comunicación del proyecto}
 \label{sec:comunicaciones}
@@ -699,8 +728,9 @@ El plan de comunicación del proyecto es el siguiente:
 \multicolumn{6}{|c|}{\cellcolor[HTML]{C0C0C0}PLAN DE COMUNICACIÓN DEL PROYECTO}           \\ \hline
 \rowcolor[HTML]{C0C0C0} 
 ¿Qué comunicar? & Audiencia & Propósito & Frecuencia & Método de comunicac. & Responsable \\ \hline
- Reportes de avance      &  Director de Proyecto y Cliente     &  Informativo    &  Mensual          &                      Email &  \authorname     \\ \hline
- Dificultades   &     Director de Proyecto y Cliente     &  Consultivo         &  Cuando se requiera          &  Email ó Meet                &  \authorname             \\ \hline
+                &           &           &            &                      &             \\ \hline
+                &           &           &            &                      &             \\ \hline
+                &           &           &            &                      &             \\ \hline
                 &           &           &            &                      &             \\ \hline
                 &           &           &            &                      &             \\ \hline
 \end{tabularx}
@@ -708,26 +738,22 @@ El plan de comunicación del proyecto es el siguiente:
 
 \section{15. Gestión de compras}
 \label{sec:compras}
-\begin{consigna}
 
-\underline{Compras de elementos:} 
-\begin{itemize}
-\item Raspberry Pi4 o similar.
-\item Sensores.
-\item Camaras. 
-\item Carcazas.
-\item Pack de baterías.
-\end{itemize}
-\underline{Contratación de servicios Cloud:} 
-\begin{itemize}
-\item Se trabajará con servicios del ``free tier'' en lo posible, en la etapa de desarrollo de prototipo.
-\item Luego se definirá el proveedor por criterio de costo menor al momento de implementacion productiva.
-\end{itemize}
+\begin{consigna}{red}
+En caso de tener que comprar elementos o contratar servicios:
+a) Explique con qué criterios elegiría a un proveedor.
+b) Redacte el Statement of Work correspondiente.
 \end{consigna}
-\newpage
 
 \section{16. Seguimiento y control}
 \label{sec:seguimiento}
+
+\begin{consigna}{red}
+Para cada tarea del proyecto establecer la frecuencia y los indicadores con los se seguirá su avance y quién será el responsable de hacer dicho seguimiento y a quién debe comunicarse la situación (en concordancia con el Plan de Comunicación del proyecto).
+
+El indicador de avance tiene que ser algo medible, mejor incluso si se puede medir en \% de avance. Por ejemplo,se pueden indicar en esta columna cosas como ``cantidad de conexiones ruteadeas'' o ``cantidad de funciones implementadas'', pero no algo genérico y ambiguo como ``\%'', porque el lector no sabe porcentaje de qué cosa.
+
+\end{consigna}
 
 \begin{longtable}{|m{1cm}|m{3.5cm}|m{2.2cm}|m{2cm}|m{3cm}|m{1.5cm}|}
 \hline
@@ -754,17 +780,39 @@ Tarea del WBS 			& Indicador de avance & Frecuencia de reporte & Resp. de seguim
 
 \end{longtable}
 
+\begin{table}[!htpb]
+\centering
+%\begin{tabularx}{\linewidth}{@{}|X|X|X|X|X|X|@{}}
+\begin{tabularx}{\linewidth}{@{}|X|C{2.5cm}|C{3cm}|C{2cm}|C{2cm}|C{2.5cm}|@{}}
+\hline
+\rowcolor[HTML]{C0C0C0} 
+\multicolumn{6}{|c|}{\cellcolor[HTML]{C0C0C0}SEGUIMIENTO DE AVANCE}                                                                       \\ \hline
+\rowcolor[HTML]{C0C0C0} 
+Tarea del WBS & Indicador de avance & Frecuencia de reporte & Resp. de seguimiento & Persona a ser informada & Método de comunic. \\ \hline
+ &  &  &  &  &  \\ \hline
+ &  &  &  &  &  \\ \hline
+ &  &  &  &  &  \\ \hline
+ &  &  &  &  &  \\ \hline
+ &  &  &  &  &  \\ \hline
+\end{tabularx}%
+%}
+\end{table}
 
 \section{17. Procesos de cierre}    
 \label{sec:cierre}
 
-\begin{consigna}
+\begin{consigna}{red}
+Establecer las pautas de trabajo para realizar una reunión final de evaluación del proyecto, tal que contemple las siguientes actividades:
+
 \begin{itemize}
-\item Al finalizar el proyecto, se realizará una evaluación de las tareas y sus entregables.
-La evaluación la ejecutará el Director del Proyecto: \supname
-\item Identificación de las técnicas y procedimientos útiles e inútiles que se utilizaron, y los problemas que surgieron y cómo se solucionaron. Esta tarea la ejecutará \authorname.
-\item \authorname  enviará un email de agradecimiento a todos los interesados, y en especial al equipo de trabajo y colaboradores.
+\item Pautas de trabajo que se seguirán para analizar si se respetó el Plan de Proyecto original:
+ - Indicar quién se ocupará de hacer esto y cuál será el procedimiento a aplicar. 
+\item Identificación de las técnicas y procedimientos útiles e inútiles que se utilizaron, y los problemas que surgieron y cómo se solucionaron:
+ - Indicar quién se ocupará de hacer esto y cuál será el procedimiento para dejar registro.
+\item Indicar quién organizará el acto de agradecimiento a todos los interesados, y en especial al equipo de trabajo y colaboradores:
+  - Indicar esto y quién financiará los gastos correspondientes.
 \end{itemize}
+
 \end{consigna}
 
 
