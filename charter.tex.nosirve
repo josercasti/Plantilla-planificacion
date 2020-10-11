@@ -141,17 +141,17 @@ En la Figura \ref{fig:diagBloques} se presenta el diagrama en bloques del sistem
 \vspace{25px}
 
 \end{consigna}
-\newpage
+
 
 \section{Identificación y análisis de los interesados}
 \label{sec:interesados}
-
 \begin{consigna} 
 
 \begin{table}[ht]
 \label{tab:registro}
 \centering
-\label{tab:interesados}
+%\caption{Identificación de los interesados}
+%\label{tab:interesados}
 \begin{tabularx}{\linewidth}{@{}|l|X|X|l|@{}}
 \hline
 \rowcolor[HTML]{C0C0C0} 
@@ -167,10 +167,9 @@ Equipo        & Matias Ventura | Paula Zanetti     & -  & - 	\\ \hline
 Usuario final externo & Equipos de Mantenimiento de Operadores  & Varios    & Varios- \\ \hline
 Usuario final interno & Equipo de Operaciones      & \empclientename & Varios    	\\ \hline
 \end{tabularx}
-\caption{Identificación de los interesados}
 \end{table}
 
-Características de interesados/stakeholders:
+Características de stakeholders:
 \begin{itemize}
 \item Auspiciante: suele demorar en responder ante solicitud de provisión de detalles. 
 \item Impulsor: es exigente en cuanto a plazos de entrega.
@@ -220,13 +219,13 @@ PPara el desarrollo del presente proyecto se asumen los siguientes supuestos com
 \section{4. Requerimientos}
 \label{sec:requerimientos}
 \begin{consigna}
-GGrupo de requerimientos asociados con el dispositivo de \underline{hardware IoT}:
+GGrupo de requerimientos asociados con el dispositivo de hardware:
 	\begin{enumerate}
 	\item Alimentación eléctrica a 220 V / 50 Hz / conector tipo C / I para el prototipo de test.	
 	\item Carcaza con grado de protección IP 65 - resistente a humedad y polvo- dado que estará en intemperie.
 	\item Conector a paquete de baterías con una autonomía de al menos 2 horas.
 	\end{enumerate}
-Grupo de requerimientos asociados con \underline{software}:
+Grupo de requerimientos asociados con software
 	\begin{enumerate}
 	\item Acceso a la información mediante un portal web disponible en Internet.
 	\item Acceso a la aplicación basada en roles (Admin, usuario) con autenticación por API con Azure o similar. 
@@ -234,13 +233,13 @@ Grupo de requerimientos asociados con \underline{software}:
 	\item Envío de alertas por SMS y/o email a elección del usuario.
 	\item Almacenamiento de datos históricos por 5 años.
 	\end{enumerate}
+
 \end{consigna}
-\newpage
+
 \section{Historias de usuarios (\textit{Product backlog})}
 \label{sec:backlog}
 
-\begin{consigna} 
-
+\begin{consigna} {white}
 \begin{table}[ht]
 \label{tab:registro}
 \centering
@@ -258,8 +257,10 @@ HU7 & Como Jefe de Operaciones quiero poder suspender el envío de alertas para 
 HU8 & Como Jefe de Operaciones quiero crear usuarios en el sistema para permitir acceso a información requerida &   &  3 &  3	\\ \hline
 \end{tabularx}
 \end{table}
+
 Criterio Prioridad: de 1 a 5, siendo 1 más prioritario. \newline
 Criterio Complejidad: de 3 a 13, siendo 3 menos complejo. 
+
 \end{consigna}
 
 \section{5. Entregables principales del proyecto}
@@ -631,7 +632,7 @@ c) Plan de mitigación de los riesgos que originalmente excedían el RPN máximo
  
 \underline{Nota:} Se plantean estrategias de mitigación en la última columna de la tabla anterior.
 \end{consigna}
-\newpage
+
 
 \section{13. Gestión de la calidad}
 \label{sec:calidad}
